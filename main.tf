@@ -4,7 +4,7 @@ module "jenkins" {
   name = "jenkins"
 
   instance_type          = "t3.small"
-  vpc_security_group_ids = ["sg-05fc1502c847bef0a"] #replace your SG
+  vpc_security_group_ids = ["sg-0516cb4a2416903e4"] #replace your SG
   subnet_id = "subnet-0278eda82636ce6c7" #replace your Subnet 
   ami = data.aws_ami.ami_info.id
   user_data = file("jenkins.sh") 
@@ -28,7 +28,7 @@ module "jenkins_agent" {
   name = "jenkins-agent"
 
   instance_type          = "t3.small"
-  vpc_security_group_ids = ["sg-05fc1502c847bef0a"]
+  vpc_security_group_ids = ["sg-0516cb4a2416903e4"] 
   subnet_id = "subnet-0278eda82636ce6c7" 
   ami = data.aws_ami.ami_info.id
   user_data = file("jenkins-agent.sh")  
