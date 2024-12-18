@@ -7,6 +7,7 @@ module "jenkins" {
   vpc_security_group_ids = ["sg-05fc1502c847bef0a"] #replace your SG
   subnet_id = "subnet-0278eda82636ce6c7" #replace your Subnet 
   ami = data.aws_ami.ami_info.id
+  user_data = file("jenkins.sh") 
   tags = {
     Name = "jenkins"
   }
@@ -30,6 +31,7 @@ module "jenkins_agent" {
   vpc_security_group_ids = ["sg-05fc1502c847bef0a"]
   subnet_id = "subnet-0278eda82636ce6c7" 
   ami = data.aws_ami.ami_info.id
+  user_data = file("jenkins-agent.sh")  
   tags = {
     Name = "jenkins-agent"
   }
